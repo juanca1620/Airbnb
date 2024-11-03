@@ -1,4 +1,4 @@
-import type Reserva from "./Reserva";
+import Reserva from "./Reserva";
 
 export default interface User{
   UserName:string,
@@ -7,4 +7,9 @@ export default interface User{
   numero:string,
   cedula:string,
   listaReservas:Reserva[]
+
+  public addReserva(reserva:Reserva){
+    this.listaReservas.push(reserva)
+  }
+
 }
