@@ -7,9 +7,5 @@ export default interface User{
   numero:string,
   cedula:string,
   listaReservas:Reserva[]
-
-  public addReserva(reserva:Reserva){
-    this.listaReservas.push(reserva)
-  }
-
 }
+
