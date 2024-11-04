@@ -7,26 +7,19 @@ export default class ReservaValidator{
     const reservasUser:Reserva[] = usuario.listaReservas;
     const reservasApartamento:Reserva[] = apartamento.reservas;
 
-    let i;
-
-    for ( i = 0;reservasApartamento[i].horaFinal <  ; ++) {
-
-    }
-
-
+    return !(this.seCruzaReservaConListaReservas(reservasUser,reserva) && this.seCruzaReservaConListaReservas(reservasApartamento,reserva))
   }
 
-  static seCruzaReserva (reservaUno:Reserva,reservaDos:Reserva):boolean{
-    // la primera condicion sirve para descartar fechas que nisiquiera son factibles de que se crucen
-    return (reservaUno.horaFinal < reservaDos.horaInicio || reservaUno.horaInicio > reservaDos.horaFinal)  && ((reservaUno.horaInicio  <= reservaDos.horaInicio && reservaUno.horaFinal >= reservaDos.horaInicio) ||
-    (reservaUno.horaInicio  <= reservaDos.horaFinal && reservaUno.horaFinal >= reservaDos.horaFinal) ||
-    (reservaDos.horaInicio  <= reservaUno.horaInicio && reservaDos.horaFinal >= reservaUno.horaInicio) ||
-    (reservaDos.horaInicio  <= reservaUno.horaFinal && reservaDos.horaFinal >= reservaUno.horaFinal))
+  static noSeCruzaReserva (reservaUno:Reserva,reservaDos:Reserva):boolean{
+    return reservaUno.horaFinal < reservaDos.horaInicio || reservaUno.horaInicio > reservaDos.horaFinal
   }
 
   static seCruzaReservaConListaReservas (listaReservas:Reserva[],reserva:Reserva){
     for (let i = 0; i < listaReservas.length; i++) {
-      
+      if (!this.noSeCruzaReserva(reserva,listaReservas[i])) {
+        return true;
+      }
     }
+    return false;
   }
 }
