@@ -1,6 +1,7 @@
 import Reserva from "./Reserva";
 
 export default interface User{
+  id:number,
   UserName:string,
   Correo:string,
   contra:string,

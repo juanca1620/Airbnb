@@ -13,11 +13,6 @@ const router = createRouter({
       path: '/VentanaPrincipal',
       name: 'VentanaPrincipal',
       component: () => import('../views/VentanaCliente.vue')
-    },
-    {
-      path: '/VentanaPrincipal/ReservasCliente',
-      name: 'ReservasCliente',
-      component: () => import('../views/ventasAnteriores.vue')
     }
   ]
 })
