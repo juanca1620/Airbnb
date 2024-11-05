@@ -1,11 +1,12 @@
+import Reserva from "./Reserva";
+
 export default interface User{
+  id:number,
   UserName:string,
   Correo:string,
   contra:string,
   numero:string,
   cedula:string,
-  listaReservas:{annio:number,
-    mes:number,
-    dia:number
-  }[]
+  listaReservas:Reserva[]
 }
+
