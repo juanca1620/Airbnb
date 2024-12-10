@@ -11,9 +11,6 @@ export default class ReservaService{
     if(ReservaValidator.validarReserva(usuario,apartamento,reserva)){
       usuario.listaReservas.push(reserva);
       apartamento.reservas.push(reserva);
-      console.log(apartamento.lugar)
-      console.log(usuario.listaReservas)
-      console.log(apartamento.reservas)
       UsuarioService.updateUser(usuario);
       DepartamentoService.updateDepartment(apartamento);
       return true;
